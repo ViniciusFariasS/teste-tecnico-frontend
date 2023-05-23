@@ -1,21 +1,22 @@
-import { useEffect } from "react";
-import api from "../../services/api";
-import { getTimezoneService } from "../../services/football.service";
+import React, { useContext } from "react";
+import { EStoreAction, IStoreContext } from "../../context/storeContext.interface";
+import { StoreContext } from "../../context/storeContext";
 
 const Content = () => {
+    const { store, dispatch } = useContext(StoreContext as React.Context<IStoreContext>);
 
-    useEffect(() => {
-        getTimezoneService("c47295fa935f6c7b2c9ecb2937f1c068")
-            .then(res => console.log(res))
-    }, [])
-
+    const handleLogin = () => {
+        const loginPayload = "mylogin";
+        dispatch({ type: EStoreAction.SET_LOGIN, payload: loginPayload });
+    };
 
     return (
-        <div>
-            Iniciando a estruturação do projeto
+        <div>            
+            <p>Login: {store.key}</p>
+            <button onClick={handleLogin}>Set Login</button>
         </div>
     );
-}
+};
 
 export {
     Content as LoginPage
