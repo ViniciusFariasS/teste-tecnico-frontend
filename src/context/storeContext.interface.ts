@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
+import { IHeaders } from "../pages/Login/Login.interface";
+import { AxiosRequestConfig } from "axios";
 
 export interface IStoreData {
-    key: string;
+    key?: AxiosRequestConfig;
 }
 
 export enum EStoreAction {
@@ -10,7 +12,7 @@ export enum EStoreAction {
 
 export interface IStoreAction {
     type: EStoreAction;
-    payload: string;
+    payload: IStoreData;
 }
 
 export interface IStoreContext {

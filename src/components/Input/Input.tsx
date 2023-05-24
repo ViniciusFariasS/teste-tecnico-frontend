@@ -1,5 +1,5 @@
 import { useController } from "react-hook-form";
-import { IInputProps } from "./Input.interface";
+import { EInputType, IInputProps } from "./Input.interface";
 import { ERRORMESSAGE, INPUTFIELD, INPUTWRAPPER, LABEL } from "./Input.style";
 import { useEffect, FC } from "react";
 
@@ -7,7 +7,7 @@ const Input: FC<IInputProps> = ({
     control,
     name,
     label,
-    type = 'text',
+    type = EInputType.Text,
     placeholder = '',
     ...rest }) => {
     const {
@@ -19,11 +19,6 @@ const Input: FC<IInputProps> = ({
         rules: { required: '* Campo obrigatório' },
         defaultValue: '',
     });
-
-    useEffect(() => {
-        console.log({ ...rest });
-    }, [])
-
 
     return (
         <INPUTWRAPPER>

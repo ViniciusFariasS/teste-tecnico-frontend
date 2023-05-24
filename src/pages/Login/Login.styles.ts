@@ -36,6 +36,9 @@ const LOGIN = styled.section`
             align-items: center;
             flex-direction: column;            
             width: 70%;
+            &--loader{
+                margin-top: 64px;
+            }
             &--form{
                 align-items: center;
                 background-color: rgba(224,224,224, 0.2);

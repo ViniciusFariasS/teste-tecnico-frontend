@@ -1,16 +1,11 @@
+import { AxiosRequestConfig } from "axios";
 import api from "./api";
 
-const config = {
-    headers: {
-        "x-rapidapi-key": "c47295fa935f6c7b2c9ecb2937f1c068"
-    }
-};
 
-
-const getTimezone = () => api.api.get(`timezone`, config);
-const getCountries = () => api.api.get(`countries`, config);
+const getTimezone = (config: AxiosRequestConfig) => api.api.get(`timezone`, config);
+const getCountries = (config: AxiosRequestConfig) => api.api.get(`countries`, config);
 
 export {
     getTimezone as getTimezoneService,
-    getCountries as getCountriesService,    
+    getCountries as getCountriesService,
 }

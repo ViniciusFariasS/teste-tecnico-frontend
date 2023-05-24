@@ -17,6 +17,7 @@ const INPUTFIELD = styled.input`
     padding: 8px 2px 8px 2px;
     border-style: none;
     border-radius: 4px;
+    text-align: center;
 `;
 
 const ERRORMESSAGE = styled.span`

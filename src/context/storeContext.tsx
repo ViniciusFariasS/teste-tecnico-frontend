@@ -9,14 +9,18 @@ function setReducer(state: IStoreData, action: IStoreAction): IStoreData {
     switch (type) {
         case EStoreAction.SET_LOGIN:
             console.log(payload);
-            return { ...state, key: payload };
+            return { ...state, key: payload.key };
         default:
             return state;
     }
 }
 
 const initialState: IStoreData = {
-    key: "",
+    key: {
+        headers: {
+            "x-apisports-key": ""
+        }
+    }
 };
 
 
