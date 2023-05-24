@@ -10,5 +10,6 @@ export interface IInputProps {
 export enum EInputType {
     Text = "text",
     Number = "number",
-    Password = "password"
+    Password = "password",
+    Select = "select"
 }

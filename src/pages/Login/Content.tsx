@@ -8,9 +8,9 @@ import { useForm } from "react-hook-form";
 import { Loader } from "../../components/Loader/Loader";
 import { Alert } from "../../utils/utils";
 import { EAlertTypes } from "../../utils/global.interface";
-import { IHeaders } from "./Login.interface";
 import { getCountriesService } from "../../services/football.service";
 import { AxiosRequestConfig } from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Content = () => {
     const { store, dispatch } = useContext(StoreContext as React.Context<IStoreContext>);
@@ -20,6 +20,8 @@ const Content = () => {
 
 
     const { control, handleSubmit } = useForm();
+
+    const navigate = useNavigate();
 
 
     //"c47295fa935f6c7b2c9ecb2937f1c068";
@@ -33,6 +35,7 @@ const Content = () => {
     };
 
     useEffect(() => {
+        console.log(store.key)
         if (key) {
             setLoading(true);
             getCountriesService(key as AxiosRequestConfig)
@@ -41,6 +44,7 @@ const Content = () => {
                         Alert(EAlertTypes.error, "Insira uma key válida para efetuar o login");
                     } else {
                         dispatch({ type: EStoreAction.SET_LOGIN, payload: { key: key } });
+                        navigate("/Home");
                     }
                 })
                 .finally(() => {

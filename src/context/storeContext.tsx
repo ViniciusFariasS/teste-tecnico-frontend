@@ -16,14 +16,8 @@ function setReducer(state: IStoreData, action: IStoreAction): IStoreData {
 }
 
 const initialState: IStoreData = {
-    key: {
-        headers: {
-            "x-apisports-key": ""
-        }
-    }
+    
 };
-
-
 
 const StoreContextProvider = ({ children }: IStoreContextProviderProps) => {
     const [store, dispatch] = useReducer(setReducer, initialState);

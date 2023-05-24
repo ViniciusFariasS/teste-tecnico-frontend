@@ -15,7 +15,8 @@ const LABEL = styled.label`
 const INPUTFIELD = styled.input`
     width: 224px;
     padding: 8px 2px 8px 2px;
-    border-style: none;
+    border: 1px solid #ccc;
+    
     border-radius: 4px;
     text-align: center;
 `;
