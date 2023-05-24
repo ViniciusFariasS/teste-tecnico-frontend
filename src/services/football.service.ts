@@ -8,7 +8,9 @@ const config = {
 
 
 const getTimezone = () => api.api.get(`timezone`, config);
+const getCountries = () => api.api.get(`countries`, config);
 
 export {
-    getTimezone as getTimezoneService
+    getTimezone as getTimezoneService,
+    getCountries as getCountriesService,    
 }
