@@ -4,7 +4,7 @@ import React from "react"
 
 const Row: React.FC<IRowProps> = ({ columns, children }) => {
     return (
-        <ROW>
+        <ROW columns={columns}>
             {React.Children.map(children, (child, index) => (
                 <COLUMN key={index} columns={columns}>
                     {child}

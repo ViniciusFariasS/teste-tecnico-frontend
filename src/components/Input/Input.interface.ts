@@ -1,10 +1,12 @@
-import { Control, FieldValues } from "react-hook-form";
+
 export interface IInputProps {
-    control: any;
     name: string;
     label?: string;
     type?: string;
     placeholder?: string;
+    required?: boolean;
+    options?: Array<ISelectOption>;
+    disabled?: boolean;
 }
 
 export enum EInputType {
@@ -12,4 +14,9 @@ export enum EInputType {
     Number = "number",
     Password = "password",
     Select = "select"
+}
+
+export interface ISelectOption {
+    id: string;
+    name: string;
 }

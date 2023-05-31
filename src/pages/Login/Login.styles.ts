@@ -64,24 +64,11 @@ const LOGIN = styled.section`
                         color: #FFF;
                         font-size: 14px;
                     }
+                }    
+
+                &-button {
+                    margin-top: 16px;
                 }
-                
-                &-button{
-                    button{
-                        background-color: #FF914D;
-                        border-radius: 8px;
-                        border-style: none;
-                        color: #FFF;
-                        margin-top: 16px;                    
-                        padding: 8px;
-                        width: 224px;
-                        cursor: pointer;
-                        &:hover{                        
-                            background-color: rgba(255, 145, 77, 0.7);
-                        }
-                    }
-                }
-                
             }
         }
     }

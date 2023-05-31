@@ -4,13 +4,14 @@ import { StoreContext } from "../../context/storeContext";
 import { LOGIN } from "./Login.styles";
 import { Input } from "../../components/Input/Input";
 import { EInputType } from "../../components/Input/Input.interface";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { Loader } from "../../components/Loader/Loader";
 import { Alert } from "../../utils/utils";
 import { EAlertTypes } from "../../utils/global.interface";
 import { getCountriesService } from "../../services/football.service";
 import { AxiosRequestConfig } from "axios";
 import { useNavigate } from "react-router-dom";
+import { Button } from "../../components/Button/Button";
 
 const Content = () => {
     const { store, dispatch } = useContext(StoreContext as React.Context<IStoreContext>);
@@ -18,11 +19,10 @@ const Content = () => {
     const [key, setKey] = useState<AxiosRequestConfig | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
-
-    const { control, handleSubmit } = useForm();
+    const methods = useForm();
+    const { control, handleSubmit } = methods;
 
     const navigate = useNavigate();
-
 
     //"c47295fa935f6c7b2c9ecb2937f1c068";
     const onSubmit = (data: any) => {
@@ -72,15 +72,19 @@ const Content = () => {
                                 <Loader />
 
                             </div> :
-                            <form onSubmit={handleSubmit(onSubmit)}>
-                                <div className="login__box--form-input">
-                                    <span>Insira sua key para efetuar o login</span>
-                                    <Input control={control} name="key" type={EInputType.Password} placeholder="key" />
-                                </div>
-                                <div className="login__box--form-button">
-                                    <button type="submit">Entrar</button>
-                                </div>
-                            </form>
+                            <FormProvider {...methods}>
+                                <form onSubmit={handleSubmit(onSubmit)}>
+                                    <div className="login__box--form-input">
+                                        <span>Insira sua key para efetuar o login</span>
+                                        <Input required name="key" type={EInputType.Password} placeholder="key" />
+                                    </div>
+                                    <div className="login__box--form-button">
+                                        <Button width="224px" color="#FF914D" type="onSubmit">
+                                            Entrar
+                                        </Button>
+                                    </div>
+                                </form>
+                            </FormProvider>
                     }
                 </div>
             </div>
